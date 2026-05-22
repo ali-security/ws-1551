@@ -23,7 +23,7 @@ jobs:
           - macOS-latest
           - ubuntu-22.04
           - ubuntu-24.04
-          - windows-latest
+          - windows-2022
         exclude:
           - arch: x86
             os: macOS-latest
@@ -39,8 +39,6 @@ jobs:
           architecture: ${{ matrix.arch }}
       - run: npm install
       - run: npm test
-      - run:
-          echo ::set-output name=job_id::$(node -e
-          "console.log(crypto.randomBytes(16).toString('hex'))")
+      - run: echo ::set-output name=job_id::$(node -e "console.log(crypto.randomBytes(16).toString('hex'))")
         id: get_job_id
         shell: bash
